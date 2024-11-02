@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abdul Rahman - Professional Portfolio</title>
+    <style>
+        /* General Styling */
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #ffffff, #e6f7ff);
+            color: #003366;
+            overflow-x: hidden;
+            margin: 0;
+            scroll-behavior: smooth;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            perspective: 2000px;
+            transition: background 0.5s, color 0.5s;
+        }
+        h1, h2 {
+            color: #0066cc;
+            text-shadow: 0 0 10px #0066cc, 0 0 20px #0066cc;
+            margin-top: 20px;
+            text-align: center;
+            transition: color 0.5s;
+        }
+        .intro-box {
+            max-width: 800px;
+            background: #e6f7ff;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 102, 204, 0.3);
+            padding: 40px;
+            text-align: center;
+            margin-top: 20px;
+            animation: fadeIn 2s ease-in-out;
+            transition: transform 0.5s, box-shadow 0.5s;
+        }
+        .intro-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 102, 204, 0.5);
+        }
+
+        /* Floating Particles */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            opacity: 0.2;
+        }
+        .particle {
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            background: radial-gradient(circle, #0066cc, transparent);
+            border-radius: 50%;
+            animation: float 10s infinite, spin 6s linear infinite;
+            transform-origin: center;
+            filter: drop-shadow(0 0 8px #0066cc);
+            transition: transform 0.5s;
+        }
+        .particle:hover {
+            transform: scale(1.5);
+        }
+
+        /* Sidebar Styling */
+        #video-section, #video-section-right {
+            width: 250px;
+            padding: 20px;
+            background-color: rgba(240, 248, 255, 0.9);
+            border: 2px solid #0066cc;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            overflow-y: auto;
+            height: calc(100vh - 60px);
+            position: fixed;
+            top: 0;
+            z-index: 2;
+            box-shadow: 0 0 20px #0066cc;
+            transition: background 0.5s, box-shadow 0.5s;
+        }
+        #video-section {
+            left: 10px;
+        }
+        #video-section-right {
+            right: 10px;
+        }
+
+        /* Profile Image */
+        .profile-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 3px solid #0066cc;
+            box-shadow: 0 0 20px #0066cc, 0 0 50px rgba(0, 102, 204, 0.4);
+            margin-bottom: 20px;
+            animation: pulse 2s infinite alternate;
+            transition: transform 0.3s;
+        }
+        .profile-photo:hover {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        /* Main Content */
+        .content {
+            width: 100%;
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.5s;
+        }
+        .content:hover {
+            transform: translateY(-5px);
+        }
+        .section {
+            background: linear-gradient(135deg, #ffffff, #e6f7ff);
+            border-radius: 15px;
+            box-shadow: 0 0 15px rgba(0, 102, 204, 0.4);
+            margin-bottom: 20px;
+            padding: 20px;
+            transition: transform 0.5s, box-shadow 0.5s;
+        }
+        .section:hover {
+            transform: scale(1.02);
+            box-shadow: 0 10px 25px rgba(0, 102, 204, 0.4);
+        }
+        .section-content {
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 5px 15px rgba(0, 102, 204, 0.2);
+            border: 1px solid #0066cc;
+            padding: 20px;
+            border-radius: 10px;
+            transition: transform 0.5s;
+        }
+        .section-content:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 15px #0066cc; }
+            100% { box-shadow: 0 0 25px #0066cc; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Floating Particles -->
+    <div class="particles">
+        <div class="particle" style="top: 10%; left: 20%; animation-duration: 8s;"></div>
+        <div class="particle" style="top: 30%; left: 60%; animation-duration: 12s;"></div>
+        <div class="particle" style="top: 50%; left: 10%; animation-duration: 10s;"></div>
+        <div class="particle" style="top: 70%; left: 80%; animation-duration: 14s;"></div>
+        <div class="particle" style="top: 90%; left: 40%; animation-duration: 9s;"></div>
+    </div>
+
+    <!-- Left Sidebar with Profile and Videos -->
+    <section id="video-section">
+        <img src="https://media.licdn.com/dms/image/v2/D4D03AQGgLqNBhukmgQ/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1729085822017?e=1735776000&v=beta&t=luZTxMNOnlaoTmCpOdlrTyNCfXISjkwOGiAEBF65JeE" alt="Abdul Rahman Profile Photo" class="profile-photo">
+        <h2>My Videos</h2>
+        <div class="contact-details">
+            <p>Site Engineer @ ZNCC | USAID/USACE Projects | Volunteer | Pashto/Dari | Farsi | Interpreter | Translator | Proofreader | Former US Forces Employee | Seeking new opportunity.</p>
+            <p>Email: <a href="mailto:abdulafg93@gmail.com">abdulafg93@gmail.com</a></p>
+            <p>LinkedIn: <a href="https://www.linkedin.com/in/abdul-rahman93" target="_blank">Abdul Rahman</a></p>
+        </div>
+    </section>
+
+   <!-- Right Sidebar with Additional Information -->
+<section id="additional-info-section" style="position: fixed; top: 0; right: 10px; width: 250px; height: 100vh; background-color: rgba(240, 248, 255, 0.9); border: 2px solid #0066cc; box-shadow: 0 0 20px #0066cc; padding: 20px; overflow-y: auto; display: flex; flex-direction: column; justify-content: flex-start; align-items: center;">
+    <h2>Quick Highlights</h2>
+    <ul style="list-style: none; padding: 0; margin: 0; text-align: left;">
+        <li><strong>Experience:</strong> 10+ years</li>
+        <li><strong>Languages:</strong> Pashto, Dari, Farsi</li>
+        <li><strong>Projects:</strong> USAID, USACE, ADB</li>
+        <li><strong>Certifications:</strong> First Aid, OSHA</li>
+        <li><strong>Seeking:</strong> New opportunities</li>
+    </ul>
+    <h3 style="margin-top: 20px;">Contact Info</h3>
+    <p>Email: <a href="mailto:abdulafg93@gmail.com">abdulafg93@gmail.com</a></p>
+    <p>LinkedIn: <a href="https://www.linkedin.com/in/abdul-rahman93" target="_blank">Abdul Rahman</a></p>
+</section>
+
+
+    <!-- Intro Section -->
+    <div class="intro-box">
+        <h1>Welcome to Abdul Rahman's Portfolio</h1>
+        <p>Pashto/Dari Translator, Proofreader, and Civil Engineer</p>
+    </div>
+
+    <!-- Main Content -->
+    <div class="content">
+        <!-- Profile Section -->
+        <section id="profile" class="section">
+            <div class="section-content">
+                <h2>Profile</h2>
+                <p>I am an experienced Pashto/Dari translator and proofreader with a background in civil engineering. I am passionate about bridging communication gaps and contributing to impactful projects. With experience in translation, proofreading, and construction management, I bring a versatile skill set to every team I join.</p>
+            </div>
+        </section>
+
+        <!-- Employment History Section -->
+        <section id="employment" class="section">
+            <div class="section-content">
+                <h2>Employment History</h2>
+                <ul>
+                    <li><strong>Pashto/Dari Translator & Proofreader, CCI Group (Aug 2024 — Present)</strong><br>Remote work ensuring linguistic accuracy and proofreading services.</li>
+                    <li><strong>Volunteer, Network of Sustainable Development and Education (Jul 2024 — Present)</strong><br>Supporting education initiatives for Afghan girls through online schooling programs.</li>
+                    <li><strong>Site Engineer, Zwakman Nabizai Construction Company (May 2021 — Aug 2021)</strong><br>Worked on high-voltage transmission projects across multiple provinces in Afghanistan.</li>
+                    <li><strong>Construction Supervisor, Rauf Aziz Construction Company (Mar 2019 — Jan 2020)</strong><br>Supervised $160 million ADB road infrastructure projects in Afghanistan.</li>
+                    <li><strong>Site Engineer, Kargar-E-Watan Construction Company (Apr 2016 — Jan 2019)</strong><br>Ensured compliance and quality for Ministry of Defence construction projects in Kabul.</li>
+                    <li><strong>Logistic Officer, Faraz Logistics & Supply Company (Feb 2012 — Mar 2014)</strong><br>Managed supply chain and logistics for large-scale projects.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education" class="section">
+            <div class="section-content">
+                <h2>Education</h2>
+                <ul>
+                    <li><strong>B.Sc in Civil Engineering, Dawat University (2016)</strong><br>Graduated with a 66.94% score.</li>
+                    <li><strong>High School, Rahman Baba, Peshawar Pakistan (2012)</strong><br>Graduated with 84.87%.</li>
+                    <li><strong>Diploma in English, Afghan Youth Network (2010)</strong><br>Achieved a 90% score.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Certifications Section -->
+        <section id="certifications" class="section">
+            <div class="section-content">
+                <h2>Certifications</h2>
+                <ul>
+                    <li>PCR First Aid, Pakistan (2022)</li>
+                    <li>US Army's First Aid Training Circular (2019)</li>
+                    <li>OSHA Best Practices Guide (2018)</li>
+                    <li>AutoCAD 2D/3D (2017)</li>
+                    <li>MS Office Package (2011)</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="section">
+            <div class="section-content">
+                <h2>Skills</h2>
+                <ul>
+                    <li>Translation and Proofreading</li>
+                    <li>Project Management</li>
+                    <li>Team Building</li>
+                    <li>Technical Drawing and AutoCAD</li>
+                    <li>Communication and Problem Solving</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section">
+            <div class="section-content">
+                <h2>Contact</h2>
+                <p>Email: <a href="mailto:abdulafg93@gmail.com">abdulafg93@gmail.com</a></p>
+                <p>LinkedIn: <a href="https://www.linkedin.com/in/abdul-rahman93" target="_blank">Abdul Rahman</a></p>
+            </div>
+        </section>
+
+        <footer>
+            <p>&copy; 2024 Abdul Rahman - Professional Portfolio</p>
+        </footer>
+    </div>
+
+    <script>
+        // Custom Cursor JavaScript
+        const cursor = document.getElementById('custom-cursor');
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.pageX + 'px';
+            cursor.style.top = e.pageY + 'px';
+        });
+    </script>
+</body>
+</html>
